@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>信号仅是个呼啸</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='信号仅是个呼啸-the-signals-just-a-roar-by-wingedmammal'><span>信号仅是个呼啸 (</span><a href='https://archiveofourown.org/works/16051769'><span>The Signal&#39;s Just a Roar</span></a><span>) by </span><a href='https://archiveofourown.org/users/winged_mammal/pseuds/winged_mammal'><span>winged_mammal</span></a></h1><h4 id='概括'><span>概括：</span></h4><p><span>当Shaw每晚在中西部</span><sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup><span>的后路上行驶时，她没什么可以用来打发时间的东西。直到她误打误撞打开了一个关于阴谋与超自然的电台节目，主持人很乐意让她加入，并同她讨论能想象到的一切事情。（卡车司机Shaw，电台主持人Root AU）</span></p><h4 id='注意'><span>注意：</span></h4><p><span>灵感来源于一个</span><a href='https://www.tumblr.com/winged-mammal/165792350894/caseykleins-person-of-interest-au-ash-tree-lane'><span>Tumblr帖子</span></a><span>，时间设置在2016年，那时她们并没有与芬奇或里瑟扯上关系。文章标题来源于Black Lab的歌『Radio Tonight』。</span></p><p><span>仅一个章节中的一个场景评级为E（已被标记出来），如果你是来看剧情而不是性，那么你很幸运。因为本文95%的情节评级均为T。</span></p><h2 id='chapter-1'><span>Chapter 1</span></h2><p><span>玉米。</span></p><p><span>更多的玉米。</span></p><p><span>远处的是什么？是小麦么？噢不，那只是更多的玉米。</span></p><p><span>该死的无止境的，漫山遍野的玉米。</span></p><p><span>Shaw已经开始后悔做出了那个导致她来到这个被无数茎秆围绕的地方的决定，那些玉米杆子高高地耸立着，用比她更高的高度嘲弄着她，远处的田野一直延伸到地平线以外。它们至少从四个地平线以前就开始了，看在该死的上帝的份上，谁能有机会用到这么多的玉米呢？在冬日田野空旷时，这并没有如此引人注意，然而现在一年的谷物都被种下，并被给予了足够长的时间生长成了一个迫在眉睫的威胁，环绕在她去到的任何地方。</span></p><p><span>已经入夜很久的事实只会增进她积累中的鄙夷。那些明媚的阳光下，满田野似乎要延伸至永恒的玉米，现已被令人作呕的、绿色的、醒着的噩梦取代，仅被她的车灯点亮。周围根本没有任何辩识物或车辆，这让她甚至无法辨明自己现在是否真的在移动，或是只是被困在了一个时间循环里，余生注定只能在永恒而偏僻的5码爱荷华州</span><sup class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup><span>道路中行驶。</span></p><p><span>至少，作为一个被困在中西部的卡车司机，要比被你过去五年一直为之工作的政府秘密组织暗杀要强。</span></p><p><span>也许吧。</span></p><p><span>Shaw在车灯的边缘瞥见了一个十分可疑的玉米秆，她百分之百确定那根秆子她之前见过。</span></p><hr /><p><span>随着玉米被大豆代替，Shaw在她遇见的第一个卡车站停下了车，从来没有为远处的钠灯灯光和空气里飘着的奇怪尿味感到更感激过。她从卡车的驾驶座上跳下，伸展了一下胳膊，在去小便利店前往两个油箱里都加满了油。</span></p><p><span>卡车站旁边只徘徊着零数几人，这刚刚好。她从事这份工作并不是为了结识新的人——见过她脸的人越少越好。飘荡的咖啡香味将她引去便利店后面的售货亭。虽然在这样的道路上确实有些令人愉快的事情，但新鲜出炉的热咖啡绝对排名榜首。她注意到在过去几年里便利店咖啡的质量飙升，即使她太喜欢享受食物，以至于愿意承受在它仍在沸腾时可能烫伤自己舌头的风险，她仍愿让香气在驾驶室里萦绕一会，顺便让其冷却下来。</span></p><p><span>她为自己倒了一大杯旅行装的黑咖啡，评估了一下这份零食的情况，直到一个男人的声音打破了她决定无视周围所有人的渴望。</span></p><p><span>“是的，没错，我能把你送到锡达拉皮兹</span><sup class='md-footnote'><a href='#dfref-footnote-3' name='ref-footnote-3'>3</a></sup><span>去。你要在那和你男朋友会面吗？”</span></p><p><span>噢，别再来这种狗屎了。</span></p><p><span>Shaw向过道挪了一点，然后看见了一个胡子剃得很干净的老卡车司机。他前面站着一个很明显是离家出走的十几岁女孩，脚边放着她的背包。</span></p><p><span>“他就是我现在在这破事里的原因。”</span></p><p><span>“啊，甜心，他并不知道他抛弃了什么，对吗？”</span></p><p><span>Shaw翻了个白眼并从过道里走了出来，她已经受够了这狡猾的家伙，还好她知道该如何对付他。”嘿，你俩谁有点大麻吗？“</span></p><p><span>女孩被这突然的打断吓了一跳，当她看见Shaw站在粘腻的瓷砖地上，手里拿着杯咖啡并用根牛肉棒向他们打招呼时，她瞪大了眼睛。那个卡车司机向Shaw转了点身，瞥了她一眼后便决定无视她。</span></p><p><span>”如果你想把你的东西放进车里的话，我正准备出发了。“</span></p><p><span>Shaw向前又迈进了一步，”那句话的意思是没有大麻吗？“</span></p><p><span>卡车司机终于转过身来面对她，“我不抽那东西，而且你觉得这女孩看起来能买得起那破玩意吗？”他向女孩比了个手势，后者把背包背到肩上，有些瑟缩地看了Shaw一眼。</span></p><p><span>“哈。”Shaw的目光越过他们，看向加油站里在她车旁边的卡车。“那是你的？”她把下巴往窗外抬了抬。他顺着她的目光看去。</span></p><p><span>“是啊。怎么？“</span></p><p><span>”要么大麻，要么汽油，要么屁股</span><sup class='md-footnote'><a href='#dfref-footnote-4' name='ref-footnote-4'>4</a></sup><span>，没人会免费让人搭便车对吧？你没有大麻，又刚加完油……你看着也不像那种让人免费搭车的人，所以还会是什么呢？“女孩握紧抓住肩上背包带的手，并在意识到Shaw的意思时向后退了一步。</span></p><p><span>男人向她那跨了半步，Shaw把她的咖啡放在柜台上，向后面看着不感兴趣的员工眨了眨眼。”嘿，女士，我不知道你——“</span></p><p><span>他还没讲完话就已经跪在了地上，胳膊被Shaw扭在背后。Shaw的一只手抓住他的手腕，另一只手从后面掐住他的脖子。在男人试图从她的束缚中挣脱，面庞涨红时，她俯下身靠近他的耳朵。</span></p><p><span>”这女孩想要的是搭便车，而不是个打着龌龊主意的变态。“</span></p><p><span>在男人打算用另一只手打她时，Shaw把他的胳膊扯得更紧了，这让他因疼痛吼出了声。</span></p><p><span>”你这婊子，你他妈以为你是——“</span></p><p><span>Shaw用膝盖猛击了他的脸将他打翻，让他昏迷在地上，女孩发出了一声惊叫。Shaw看向那个员工，他对她耸耸肩，然后便继续玩他的手机。于是Shaw拍了拍手上的灰尘，用脚踢开男人的胳膊，跨过他向门走去。”这儿的男的都是变态。“她向女孩点了点头，并向她示意自己的卡车位置。“男的在哪都是变态，但一堆玉米地里的狗屎卡车站里，这明显更糟。来吧。”</span></p><p><span>女孩跟着她穿过停车场，看上去十分震惊。Shaw伸手去拿驾驶室里的民用波段无线电对讲机，并把它打开。“唔……这是</span><strong><span>除非我的卡车真的着火了，不然不要和我说话</span></strong><sup class='md-footnote'><a href='#dfref-footnote-5' name='ref-footnote-5'>5</a></sup><span>.“那是当有人尝试用无线电联系她时她的标准答复。她不打算成为那些给自己取个昵称的蠢货之一，所以当她无意中听到其他卡车司机用这句话把那些潜在的唠叨鬼赶走时，她决定就这么说。”我这又有个需要搭车的逃亡者。有人在林肯公路109英里处的斯帕克便利店附近，准备往锡达拉皮兹开的吗？“</span></p><p><span>”我不能就——“那个女孩刚开口，Shaw就摇了摇头。</span></p><p><span>”我做这个工作是为了远离人们，而不是让他们在我的地盘呆上三个小时。“</span></p><p><span>”Firecracker，这是Peanuts</span><sup class='md-footnote'><a href='#dfref-footnote-6' name='ref-footnote-6'>6</a></sup><span>。我正往那个方向开，大概十五分钟到你那。“</span></p><p><span>Shaw瞥了女孩一眼，”你的名字是？“</span></p><p><span>”Jennifer？“</span></p><p><span>”那是个问题吗？“Shaw冲她眯了眯眼，但又拿起了麦克风。”收到，Peanuts。她的名字是Jennifer，她会在店里和员工一起等。“</span></p><p><span>Shaw回头向店里走去，在一阵沉默之后，很显然那个女孩Jennifer追上了她。”你知道他究竟是谁吗？“</span></p><p><span>”不太知道，但我知道他和我一样讨厌那些捕猎的变态们。让我们名誉扫地，诸如此类的。“虽然她并不参与无线电频道的聊天，但这并不意味着她不会时不时地听一听。不管怎么说，侦察就是侦察，即使只是收集她长途卡车司机同伴们的情报。</span></p><p><span>她在柜台旁停下，用手肘靠在上面。那个员工的目光从他的手机上移开，向上看了看，但只是一会。</span></p><p><span>”我不知道要怎么感谢你，“女孩又开口了，Shaw长叹一口气并打断了她。</span></p><p><span>”下次准备个比从你男朋友那逃掉，并期望碰见个更好的男的的计划吧，这就行了。现在呆在这别走，等着花生过来，并且……“她有意地向前探了探身子，去看那个店员的胸前的名牌，”Charlie会在这看好你的，对吧Charlie？“</span></p><p><span>他终于抬起头来，意识到他已经引起了Shaw的注意，Shaw很高兴，因为他的眼神表示他已经意识到了这不是件好事。当他像个白痴一样走近Shaw时，Shaw向他招手并抓住了他的衣领。</span></p><p><span>”因为如果他不的话，要是我在Peanuts来这之前发现了什么事，他知道我会找到他的，对吧？“</span></p><p><span>Charlie用力地点了点头，尖叫道：“明白了。“于是Shaw把他放了下来。</span></p><p><span>她的咖啡还在柜台上呆着，她抿了一口，并把几张钞票丢在柜台上。</span></p><p><span>冷却得很完美。</span></p><hr /><p><span>Another flyover state, another ten thousand rows of corn, and Shaw had run out of new audiobooks fifty miles ago.</span></p><p><span>又是一个无关紧要</span><sup class='md-footnote'><a href='#dfref-footnote-7' name='ref-footnote-7'>7</a></sup><span>的州，另一片数以万行的玉米，而Shaw在五十迈以前就听完了所有有声书。</span></p><p><span>The selection of FM radio stations with good reception in rural Kansas was wanting, and there’s only so much country or gospel music she can handle in one sitting. Her own music collection has long since been overplayed, and don’t even get her started on the state of top 40 pop stations in more populated areas.</span></p><p><span>堪萨斯</span><sup class='md-footnote'><a href='#dfref-footnote-8' name='ref-footnote-8'>8</a></sup><span>s</span></p><p><span>Who’d have thought that going on the run would be so fucking </span><em><span>boring</span></em><span>. Ordinarily she’d be fine to drive in silence, but night has fallen again and if she has to look at acre after acre of indistinguishable farmland without any other distraction or the thrill of impending violence she’s pretty sure she’ll end up hypnotizing herself.</span></p><p><span>谁能想到在路上的时候会他妈这么</span><em><span>无聊</span></em><span>？通常她对沉默着开车这件事并没有什么怨言，但随着夜晚又一次降临，如果要她看着一亩接一亩一模一样的农田，而没有任何其他</span></p><p><span>A dull, quiet static rings out through the cab when she switches her radio to the AM tuner. Great. That doesn’t bode well. She jabs the tuning button, and this time at least there are voices.</span></p><p><em><span>“... saying that the Cornhuskers can do better at QB than - ”</span></em></p><p><span>The sports talk gets cut off with another press of the button. Static at varying volumes occupies the next four stations, until she lands on a frequency with overlapping stations.</span></p><p><em><span>“...ple don’t know about the great deal - we’ll be back in just a - city mileage and twenty on the highway - on KOSJ 1320 AM - ”</span></em></p><p><span>In theory it’s nice that AM stations can travel so far at night, but in reality it just fucks with everything and makes most of it unlistenable. In this flat region of the country it doesn’t matter how many stations power down after sunset, everyone else in the Midwest is competing for the same airwaves and it all ends up overlapping with each other. She sighs and keeps her finger hovered over the button, glancing over at the stereo every so often as she watches the road.</span></p><p><em><span>“... Purple Haze was actually inspired by a book Hendrix had read - ”</span></em></p><p><span>Had some potential, but the signal strength kept going in and out. Must be a storm brewing between here and there.</span></p><p><em><span>“... our lord and savior and his light will - ”</span></em></p><p><span>No.</span></p><p><em><span>“...she thinks my tractor’s sexyyy...”</span></em></p><p><span>What’s with this place and their tractor fetish anyway?</span></p><p><span>Static, static, some sort of news radio but the discussion was buried under a layer of static, three more gospel stations. Finally she lands upon a woman’s voice, coming through crisp and clear.</span></p><p><em><span>“... actually a common misconception. The observer effect says that to measure something is to change it. You have to have some kind of electromagnetic power source in order to use any kind of scientific instrument, visible light or gamma rays or infrared or whatever the case may be. You can’t measure something unless that light hits it, and when you get to the quantum level even a single photon will irrevocably alter what you’re looking at.”</span></em></p><p><span>Shaw relaxes in her seat. The woman isn’t selling her something, she’s not in love with her farm equipment, her station is free from interference and static - she’s the total package. The fact that she’s got a pleasant voice and seems to be one of the few late night talk show hosts Shaw’s ever heard who has half a brain is a nice bonus, but unnecessary at this point in her desperation for a distraction.</span></p><p><em><span>“The Heisenberg uncertainty principle is along those same lines. It describes how you can either precisely know your location, or you can precisely know your momentum, but you can’t know both at the same time. The closer you get to one, the further you get from the other. So the observer effect says there’s always going to be some uncertainty in the results in whatever you’re measuring, while Heisenberg is more about the math on why that is, and it applies to the quantum realm regardless of any human input.”</span></em></p><p><span>Shaw finds herself listening more intently than she’d anticipated. It’s nothing she didn’t already know, but a radio program that talks about particle physics at two thirty in the morning is more promising than anything else she’s heard, for sure. Her eyes flick over to the radio and she makes note of the frequency; she’ll probably be coming back to this station in the future.</span></p><p><em><span>“All of which gets into why atomic structures actually have a probabilistic cloud instead of discrete orbitals for the electrons like we were taught in high school chemistry, and all sorts of fun about wavefunctions and Hamiltonians and just absolutely excruciating math that has no place on radio. But I think my favorite thing is how Heisenberg was once pulled over by a cop, who asked him ‘Do you know how fast you were going?’ and he replied, ‘No, but I know exactly where I was.’”</span></em></p><p><span>The host laughs to herself, pleased with her terrible joke.</span></p><p><span>Goddammit. Can’t she have anything nice? The one late night radio show with decent reception and acceptable content and the host is the worst kind of nerd.</span></p><p><span>The woman clears her throat. </span><em><span>“Okay, so thanks for indulging me there, Gary, what was it you were saying?”</span></em></p><p><span>A second person comes on, a caller to the show judging by the slight hollowness to his voice as he speaks. </span><em><span>“Yeah, uh…”</span></em><span> He sounds confused by what he’s just heard, and Shaw is pretty sure she hears the host stifle another laugh. </span><em><span>“I don’t know anymore.”</span></em></p><p><em><span>“That’s okay Gary, I’m sure it wasn’t that interesting anyway. Let’s go to one of our other callers. Hello to Steve in Stillwater, you’re on</span></em><span> Northern Lights</span><em><span>, what’s on your mind tonight?”</span></em></p><p><span>Northern Lights. Hmm. That doesn’t give much of a hint as to what this show is supposed to be about, but it does kind of fit with the physics lecture, Shaw supposes. The new caller is clearly agitated, and comes on the air with no preamble to his rant.</span></p><p><em><span>“What I want to know is why there’s a server in Trump tower that’s communicating with a Russian bank every day. They’re exchanging packets of information during New York and Moscow office hours and there’s no other web traffic to that server, and any other IP address is blocked from even pinging it? How are you gonna tell me that’s not some clandestine Russian intelligence communicating with its American asset thing? I looked into the DNS on this - ”</span></em></p><p><em><span>“I’m gonna stop you right there, Steve,”</span></em><span> the host interrupts. Thank fuck. Shaw’s been pretty disconnected from the world lately, and every time she hears anything about the pending election she’s almost glad she’s in this situation. </span><em><span>“I’ve made it clear that we’re not discussing that man on this show, it’s all just too depressing. All right, let’s move on, shall we? Caller from Higginsville, you’re on the air. Death is inevitable and none of us have a purpose in life. Thoughts?”</span></em></p><p><span>Shaw snorts and adds the station to her radio presets. As long as this host keeps tormenting her callers, she can forgive one bad joke.</span></p><p>&nbsp;</p><hr /><p>&nbsp;</p><p><span>It&#39;s been seven months since the ISA tried to kill her, and since changing her name, becoming a truck driver, and spending long solitary hours on the road mostly in the Midwest, this is what Shaw’s learned:</span></p><p><span>It’s better to take the hit on the timely delivery and pull over at a rest stop for a few hours when a snow storm blows up in Iowa, rather than end up stuck on the road after some idiot drivers crash. At least there are indoor toilets at the rest stop.</span></p><p><span>Soybeans are a tool of the devil. Worse than corn, somehow.</span></p><p><span>It takes ten seconds for her rig to overtake a farm tractor ambling along at five miles an hour down a two lane road, eight if the guy pissed her off by driving a John Deere and she wants to cut him off.</span></p><p><span>There are a lot of John Deere tractors in the Midwest.</span></p><p><span>KGGF 690 AM in Coffeyville Kansas airs a late night talk radio show at two in the morning called Northern Lights that supposedly covers conspiracy and paranormal topics, but really it’s whatever weird shit the host, who calls herself Redacted, wants to talk about.</span></p><p><span>She’s pretty sure that KGGF doesn’t actually </span><em><span>intend</span></em><span> to air a late night talk radio show at two in the morning that covers conspiracy and paranormal topics, given the burst of static that interrupts the syndicated sports show every night as Northern Lights comes on the air. Shaw doesn’t have much access to the internet since she tossed her phone and replaced it with a series of burners only capable of calls and texts, but if she did, she’s certain she wouldn’t find any reference to the show on KGGF’s website.</span></p><p><span>Redacted may come across as a smug little shit with bad jokes sometimes, but she’s brazen, Shaw will give her that.</span></p><p><em><span>“... get sick or injured after getting vaccines all the time, it’s just being covered up by these companies who do zero research and just want to scare people into giving them money.”</span></em></p><p><span>The caller currently on her show, on the other hand, is just a fucking moron. Shaw has to question Redacted’s taste, letting him blather on for so long. Crackpot conspiracy theories about UFOs or Bigfoot are one thing, but letting more of this anti-vaxxer crap into the world is just irresponsible.</span></p><p><span>Unbidden, the call-in number for the show pops into her mind. She’s heard it enough over the past couple weeks - radio shows with good reception that don’t make her want to bang her head against the steering wheel are hard to come by, and this one at least is always unpredictable. She considers her need to stay under the radar and her desire to not interact with the dumbass population of the country for a moment, but it’s not like there would be that many government spooks listening to a pirate radio broadcast in the Midwest at two thirty in the morning on a Thursday. Or at least, no government spooks that would know her voice.</span></p><p><span>She dials the number.</span></p><p><span>Only a single ring passes before Redacted’s voice comes on the line. “Northern Lights. If you’re a cop you have to tell me.”</span></p><p><span>Shaw blinks. Redacted’s voice is… different, piped directly into her ear like that. Her tone is playful and she isn’t using her careful radio cadence, and the lack of the ever-present hint of static makes it seem like Shaw is hearing her clearly for the first time. She wonders, suddenly, what her actual name is.</span></p><p><span>The moment passes, and Shaw realizes something. “Why are you answering the phone yourself? Don’t you people normally have producers to screen your calls or whatever?”</span></p><p><span>There’s a laugh and a sultry hum, and Shaw thinks it’s a good thing she hasn’t been hearing Redacted like this the whole time she’s been driving. It’s dangerously distracting. “You must be new. It’s just me.”</span></p><p><span>“That have anything to do with the fact that you’re hijacking this radio station?”</span></p><p><span>“I’m shocked that you think I’d do such a thing. I’m just borrowing it for a little while.”</span></p><p><span>“Real nice legal defense you’ve got there.” The caller on the show launches into another diatribe against measles vaccines in particular. “Wait, are you even paying attention to the idiotic rambling going on on your show right now?”</span></p><p><span>“Who, Chris?” Redacted scoffs. “No, not really. I was just going to let him wear himself down then tear him a new one, but I get the impression you might enjoy that more than I would.”</span></p><p><span>“Well I sure as hell didn’t call to agree with him.”</span></p><p><span>“Excellent.” There’s a rustle as Redacted moves around on her end. “And who should I say is calling?”</span></p><p><span>Shaw hesitates. “Tell me yours and I’ll tell you mine,” she tries, getting the impression that Redacted’s interest isn’t purely professional.</span></p><p><span>“Hmm, afraid that’s a non-starter, sweetie,” Redacted says, and the hint of flirting Shaw had detected has definitely made itself known. “I’ll just call you Bertha.”</span></p><p><span>“My name’s Sameen,” Shaw interrupts before she can even contemplate the horror of being called Bertha. “But you say that on air, I’ll find you and kill you.”</span></p><p><span>“Sounds like fun.” There’s a beep on the line and more rustling. “I’m gonna put you on hold for a second, you might want to turn your radio down when you hear me again. Oh, and no cursing.”</span></p><p><span>“Wait, what?”</span></p><p><span>Redacted laughs again. “Just kidding. If the FCC can find me to give me a fine, we’ve got bigger problems.”</span></p><p><span>The line goes silent for a moment, quickly replaced by what Shaw recognizes as a major key rendition of the X-Files theme.</span></p><p><em><span>“... wants me to think that injecting a virus into my body is somehow healthy -”</span></em></p><p><em><span>“Okay, thank you for that enlightening conversation, Chris, but you’re completely wrong about everything you just said. To tell you more about how you’re single-handedly destroying America, we have Sam on the line.”</span></em></p><p><span>She hears a click in her phone, and Redacted comes back. “Sam, you’re on the air.”</span></p><p><span>“Yeah, hi,” Shaw starts, adjusting herself in her seat and glaring at an abandoned John Deere tractor on the side of the road. “Chris is the worst sort of dumbass and anyone who takes him or the shit he’s been saying seriously is the second worst sort of dumbass. Or maybe the other way around, but either way you’re all dumbasses.”</span></p><p><span>“Interesting perspective, Sam, tell us more.” Redacted sounds amused, and Shaw smiles a little to herself, glad to have an entertaining way to pass at least some of the long boring night.</span></p><p><span>“Maybe if the people spouting this anti-vax bullshit were the kind of people who have historically been experimented on by racist government scientists then I could understand it. But no, it’s a bunch of white soccer moms and their cookie cutter husbands with kids named Raylen or McKayleighloo or whatever, and the worst sort of libertarian white dudes who can only get hard when they think they’ve owned someone on the internet and don’t even know enough about biology to find the clit, let alone know better than the entire field of medicine on how to prevent disease.”</span></p><p><span>“I’m sure you can teach me a lot about biology, Sameen.” Shaw pauses her rant in a brief flash of outrage at Redacted saying her name on the air before she realizes her voice had only come through Shaw’s phone and not the radio. She must have muted herself again.</span></p><p><span>“And what the fuck is so bad about autism that these people would rather risk their kids dying of some easily preventable disease than have it? The worst disadvantage that any kid of yours would be born with is having you as parents, at least let them be healthy for god’s sake. And if your miserable brat doesn’t end up getting some shitty disease, it’s because every-fucking-one else in your neighborhood got vaccinated and we’re all just talking cows with cars and cell phones and herd immunity saved your precious little McKayloo.”</span></p><p><span>“McKayleighloo?”</span></p><p><span>“Whatever. Point is, you idiots aren’t just risking your own kids’ lives, you’re risking the lives of all the other kids in your area, including the ones who </span><em><span>can’t</span></em><span> get vaccinated because they’ve got actual medical problems besides having shit for brains parents. And I don’t particularly care about the well being of people in rich gated communities but we fucking eradicated polio in like a decade, it was a triumph of science and social policy, and you’re just gonna throw that away because Jenny goddamn McCarthy told you to?”</span></p><p><span>Fuck, Shaw really hates anti-vaxxers.</span></p><p><span>Redacted pipes up again. “Who even is Jenny McCarthy?”</span></p><p><span>“Hell if I know.”</span></p><p><span>“One of the four horsemen, probably. Pestilence, coming for us in strappy sandals and fresh highlights.”</span></p><p><span>“Exactly. Probably doesn’t even believe her own bullshit, she’s just trying to sell her crappy line of lifestyle products to a bunch of asshole idiots.”</span></p><p><span>“Capitalism at its finest.” Redacted hums in her ear. “Well, Sam, I certainly admire your passion. I don’t think Chris will be calling back in anytime soon and there’s no one else on the lines, so what else are you passionate about?”</span></p><p><span>Shaw contemplates hanging up. She doesn’t want to encourage the obvious flirting - they’ve had maybe five minutes of interaction on the phone, what even is there worth flirting over? She is bored, though, and Redacted is nothing if not a good diversion from the mindnumbingly repetitive fields of corn. Which isn’t a bad place to start, she supposes.</span></p><p><span>“Yeah, let’s talk about what a scam corn subsidies are. What are they really doing with all this shit?”</span></p><p><span>“Agribusiness is slowly consuming us all,” Redacted agrees.</span></p><p><span>A discussion of the evils of Big Corn and the spineless congressmen who don’t dare to cut the pointless subsidies makes the next twenty minutes pass by in a blur, until Northern Lights has to go off the air. Shaw ends her call and shoves her phone under her thigh, wishing she had a cold drink at hand. Her throat isn’t used to her talking that much at once.</span></p><p><span>Her phone vibrates with an incoming text. She fishes it out and sees a short message from an unknown number.</span></p><p><em><span>You can call me Root.</span></em></p><div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> <span>美国的中西部（Midwest）以玉米地闻名，这里生产了全美国近50%的玉米。除此之外，农作物还有大豆、小麦等。</span> <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>2</span> <span>Iowa州，属于美国中西部。</span> <a name='dfref-footnote-2' href='#ref-footnote-2' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>3</span> <span>Cedar Rapids，爱荷华州的第二大城市。</span> <a name='dfref-footnote-3' href='#ref-footnote-3' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>4</span> <span>Grass, gas, or ass. 很有意思的一句话，这里ass不知道怎么翻译比较好，就直译了。</span> <a name='dfref-footnote-4' href='#ref-footnote-4' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>5</span> <span>Don’t Talk to Me Unless My Truck is Literally On Fire. 回复对讲机时通常需要报上自己的名字，肖用这个作为回复。</span> <a name='dfref-footnote-5' href='#ref-footnote-5' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>6</span> <span>Firecracker直译是爆竹，烟花，但在俗语里也用来指特立独行的酷女孩。同时因为肖的回答里有Fire，因此这个人用Firecracker称呼她。而Peanuts除了用来指花生，还可以用来指小人物。</span> <a name='dfref-footnote-6' href='#ref-footnote-6' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>7</span> <span>flyover，美国人用这个词代指中西部（带贬义），指它没有东海岸或西海岸重要。</span> <a name='dfref-footnote-7' href='#ref-footnote-7' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>8</span> <span>Kansas，另一个中西部的州。</span> <a name='dfref-footnote-8' href='#ref-footnote-8' title='back to document' class='reversefootnote' >↩</a></div></div></div></div>
+</body>
+</html>
