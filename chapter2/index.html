@@ -1,0 +1,606 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>信号仅是个呼啸 - Copy</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='信号仅是个呼啸-the-signals-just-a-roar-by-wingedmammal'><span>信号仅是个呼啸 (</span><a href='https://archiveofourown.org/works/16051769'><span>The Signal&#39;s Just a Roar</span></a><span>) by </span><a href='https://archiveofourown.org/users/winged_mammal/pseuds/winged_mammal'><span>winged_mammal</span></a></h1><h3 id='翻译授权见下'><span>翻译授权见下：</span></h3><p><img src="https://raw.githubusercontent.com/famous-blue-raincoat/pic/main/20230509123309.png" referrerpolicy="no-referrer"></p><h4 id='概括'><span>概括：</span></h4><p><span>书呆子味的调情只是变得更加书呆子味和挑逗起来。</span></p><h2 id='chapter-2'><span>Chapter 2</span></h2><p><span>那些关于卡车司机一天仅能驾驶多长时间的规定都是狗屎。</span></p><p><span>诚然，大多数公司都是由一些从不顾及员工福祉的、吸食灵魂的恶魔组成， 而大多数人要么蠢到不知道自己的极限在哪儿，要么穷到无法拥有遵守这规定的奢侈，但这并不意味着Shaw应该和其他人一样遵守这种规则。</span></p><p><span>不过，在她的数据记录仪响起前她都没有察觉到现在其实已经过了凌晨两点的事实似乎与她的想法相悖。但想找到另一个掩护工作的代价实在太他妈大了，所以她决定至少暂时先别让自己被开除。</span></p><p><span>她现在正在内布拉斯加</span><sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup><span>的中央，停在一条石子路上，必须在接下来的十小时都无所事事地呆在这里。她的目光落在收音机上，考虑了一会这片地区的地理环境。Root的节目应该在收听范围之内——或者说其实并不，因为根据她之前有次在KGGF日间广播快结尾时听到的信息，他们明确表示会在晚上降低发射功率，覆盖更小的区域。然而，Root似乎每晚都能以某种方式提高功率，从Shaw过去的经验里推断，她的听众几乎遍布整个中西部。</span></p><p><span>肖打开收音机，调回到690 AM，当她听到Root的声音从扬声器中传出时不禁摇了摇头。真是胆子大啊。</span></p><p><em><span>“...它不仅响亮，而且持续的时间很长。七十秒，对吧？”</span></em></p><p><span>另一个女人的声音插入对话。</span><em><span>“七十二秒，没错。在我看来很明显，Wow!信号</span><span>[^2]</span><span>是地球发出的。对于一个在太空里能达到这种强度的东西来说，它要么拥有难以想象的能量，要么距离非常近。那些家伙使用的探测器只能观测到天空的罅隙，所以如果它是在轨道上的东西，那么它会更快地离开观测范围。”</span></em></p><p><span>Shaw抓住她安装在驾驶室后面的引体向上杆。至少这是她身高带来的一个好处。她可以在她该死的车厢里有足够的空间健身，不必去健身房被人打扰。她把自己拉了起来，在Root的声音回来前在空中停了五秒。</span></p><p><span>*“是的。所以你不同意去年发表的那篇猜测彗星可能是信号源的研究？”</span></p><p><span>Shaw对这个观点嗤之以鼻，但当她听到Root的来电者也这么做时，她有点讨厌自己。*“彗星并不会发出那样的无线电波。”</span></p><p><span>*“嗯，但这就是那篇论文的重点，对吗？他们找到了一个从前未知的彗星，它的轨道在这个信号被观测到时正好与那片空间重叠，所以他们试图弄清彗星是否有机会发射无线电波。结论是在某种情况下，它们确实可能会。”</span></p><p><em><span>“也许吧，但那样的话为什么两根天线没有都检测到信号？”</span></em></p><p><span>Shaw的眉头随着她又做了一组动作而周期。两根天线？她过去曾听说过Wow!信号，但没有听过两根天线。</span></p><p><em><span>“望远镜中所谓的馈电喇叭</span><sup class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup><span>，”</span></em><span> Root说。</span><em><span>“是的，它们指向了两个稍微有点区别的方向，所以如果那是个彗星，实际上应该能检测到有着些许时差的两个信号。可只检测到了一个，所以那不该是个彗星。或者说，不该是在轨道上的任何东西。”</span></em></p><p><span>操。她从一个阴谋论电台节目里学到了点东西。</span></p><p><em><span>“没错。如果只有一端检测到了信号，那一定是一个静止的物体，或者说离得太远以至于它可以被看作是静止的。它的信号强度很大，所以不可能有那么远，因此它肯定是从地球上发出的。”</span></em></p><p><em><span>“所以你认为那是什么？”</span></em></p><p><em><span>“嗯，在观测到信号的三天前，NASA</span><span>[^4]</span><span>测试了那架企业号飞行器</span><span>[^5]</span><span>，其中一次滑翔测试？我认为政府在那时看见了一次机会，隐蔽地发射另一个飞行器，某种在击中目标前可以在空中停留好几天的武器。但它在到达俄罗斯前爆炸了，而那就是他们捕捉到的信号</span><sup class='md-footnote'><a href='#dfref-footnote-3' name='ref-footnote-3'>3</a></sup><span>。”</span></em></p><p><span>Shaw在做引体向上的过程中暂停，盯着收音机。这的确是个新观点，也确实不是爆炸的原理。Shaw甩了甩头，将肘部弯曲成直角，然后把膝盖抬到胸处前，扭了扭腰。</span></p><p><em><span>“这...很有创意，”</span></em><span> Root说，这比Shaw之前听她说过的话都更婉转。</span><em><span>“好的，Mary，我们先保留那个观点，现在来听听Rosedale</span><span>[^7]</span><span>的Lewis怎么说。你现在在线上了，Lewis。”</span></em></p><p><em><span>“嘿，那个信号是很响，但并不像那位女士试图描述的，就像是数以万计的黑洞同时爆炸那样响。”</span></em><span> Lewis有着浓重的波士顿口音</span><span>[^8]</span><span>，是他妈什么把他带来了中西部的无名小镇？</span><em><span>“它比底噪强三十倍，确实非常响，但那只是像安静的房间里有人在说话那样响。它没有理由必须来自地球。”</span></em></p><p><span>Shaw又练了几组腹肌，尽管她很感兴趣。</span></p><p><em><span>“你说得很对，在我们讨论天体信号时，响度总是相对的。”</span></em><span> Root说。</span><em><span>“实际上大多数认为它不可能来自地球，考虑到它在空中被找到的位置，以及人类实在很难使得无线波达到那个频率。”</span></em></p><p><em><span>“并且它持续七十二秒的原因，是因为那是望远镜指向任何东西的默认时间。”</span></em></p><p><em><span>“对，是的，每个人总是忘记那部分，包括我自己。”</span></em><span> Root让兴奋滑入她的声音，而肖则让自己从杆子上滑下来</span><sup class='md-footnote'><a href='#dfref-footnote-4' name='ref-footnote-4'>4</a></sup><span>。她从冰箱中拿出一瓶水，四仰八叉地躺在地上喘息。</span><em><span>“Big Ear不能锁定天空的一块区域，因为它没法移动自己。它看到的是地球的自转让它看到的东西。所以，如果在太空中有一个不断发出信号的无线电源，我们得到的就是望远镜偶然捕捉到的这种微弱检测，当天线移动到范围内时，它逐渐变大，直到停在固定的强度，然后当它移开时，信号再次减弱。这正是Wow!信号的样子。”</span></em></p><p><em><span>&quot;是的，所以这不可能不是从太空传来的信号。但我们一遍又一遍地试图再次找到它，可它就是消失了。这是一个一期一会的东西，来自太空中的某个地方。有人试图与我们交流，但我们失去了这次机会。&quot;</span></em><span>。</span></p><p><span>哈？这家伙从“起源于太空”直接得到“外星人干的”的结论？难怪他离开波士顿来到了这个阴谋论小镇。</span></p><p><em><span>&quot;所以你认为这样的东西必须来自智慧生物。&quot;</span></em><span> Root回答道，好像他的解释非常合理一样。</span></p><p><span>肖看了看她的手机，它就在手边。</span></p><p><em><span>“是的，很明显。”</span></em></p><p><span>好吧。</span></p><p><span>那家伙继续他的滔滔不绝，但肖在拨打节目的号码时无视了他，并用另一只手擦去脖子后的汗水。</span></p><p><span>“北极光。如果你是FBI，你必须告诉我，” Root说。</span></p><p><span>“我必须说，至少Root比Redacted这个名字好听。”</span></p><p><span>Root停顿了半秒，然后用明显带着愉悦的声音回答。“噢，嗨，Sameen。我正以为我永远不会再听到你的声音了呢。”</span></p><p><span>“这可能才过最多两个星期。但确实，我觉得无聊了。快凌晨三点了，我还能做什么呢？</span><sup class='md-footnote'><a href='#dfref-footnote-5' name='ref-footnote-5'>5</a></sup><span>”</span></p><p><span>“你的呼吸有点急促，sweetie。你还好吗？”</span></p><p><span>“我刚在健身，” Shaw说，决定暂时忽略那个称呼。“现在在休息。”</span></p><p><span>“你在健身时觉得无聊？那你一定是哪里没做对。如果你愿意，我可以帮你的。” Root带着很明显的暗示说。</span></p><p><span>肖眯着眼睛看着车厢顶部。“你和你的所有来电者都调情吗？”</span></p><p><span>“只和那些叫Sameen的cutie。”</span></p><p><span>“你甚至都不——算了。你想在电台里说话吗？”</span></p><p><span>“我可以做你想让我做的任何事情，” Root说，并让Shaw稍等片刻。Shaw把收音机的音量调到很小，Lewis仍然在不知疲倦地谈论射手座的外星人。</span></p><p><em><span>“......他们文明的最后一口气——”</span></em></p><p><span>”嘿，Lewis，轮到其他人说话了，“ Root说道，听起来像她是个精疲力尽的幼儿园老师。Shaw的手机响了响，Root的声音重新传进她耳朵里。”今晚Sam又和我们一起回到了节目里。Sam，你在线上了。“</span></p><p><em><span>“Okay, Lewis, time to let someone else have a turn,”</span></em><span> Root says as though she were an exhausted preschool teacher. Shaw’s phone clicks and Root’s voice comes back into her ear. “We’ve got Sam back on the show with us tonight. Sam, you’re on the air.”</span></p><p><span>Shaw immediately launches into her thoughts. “Yeah, what I want to know is why people always jump right to aliens whenever something weird happens in space. Gamma ray bursts are a thing, and they’ve got nothing to do with aliens, it’s just physics. There’s no reason to think that signal wasn’t just something that happens naturally, but it’s rare so we haven’t seen it again.”</span></p><p><span>Shaw马上开始陈述她的观点。”对，我想知道的是为什么太空中只要有一点怪事发生，人们马上就说那是外星人。有种东西叫伽玛射线暴</span><span>[^11]</span><span>，它和外星人没有任何关系，只是一种物理现象。我们没有任何理由否认那个信号可能只是某种自然现象，但它十分罕见以至于我们没法再观测到第二次。“</span></p><p><span>Root hums. “Very true. It was the exact emission frequency of hydrogen, it’s entirely possible there was just a cloud of it somewhere that got energized and yelled about it, and it was back to normal by the time we went back to look for it.” Shaw nods to herself. “But that just seems like such a boring answer, don’t you think?”</span></p><p><span>Root嗯了一声。”很正确。它和氢的发射频率</span><span>[^12]</span><span>是一致的，所以它很有可能是某处的氢形成了能量云，并且发射出了信号，当我们再次返回观测它时它又恢复了正常。“ Shaw点了点头。”但那听上去实在是个很无聊的答案，你不觉得么？“</span></p><p><span>“听着，”肖叹了口气，“当然，外星人是存在的。宇宙大到使得这个愚蠢的小星球不可能是唯一一个适宜生命繁衍的地方。</span><em><span>但是</span></em><span>，”她强调道，察觉到Root要打断她，“宇宙同样也大到很难让其他生命抵达这里，或者让我们无法抵达他们那里。最近的星星离我们有多远，十光年？</span><em><span>光</span></em><span>到这里尚且需要十年，而我很遗憾地告诉你，我们无法达到那种速度。”</span></p><p><span>“所以你是说，因为人类没有比太空蛞蝓</span><sup class='md-footnote'><a href='#dfref-footnote-6' name='ref-footnote-6'>6</a></sup><span>更快的旅行方式，就没有人有？”Root竟然他妈的啧了啧她。“Sam，你这也太自大了。”</span></p><p><span>“我的意思是，火箭科学并不会因为你在不同的星球上而改变。要使得你的飞船不会解体，你的速度必须在一个限度之内，所以想要穿越星辰，那得花费数千年的时间。而当你到达那里时，你本来要见的当地人可能已经把自己炸飞了。”</span></p><p><span>“所以你觉得超光速旅行是不可能的？也许虫洞呢？”</span></p><p><span>“那也不可能，而且它们太难以预测了，根本无法被使用。”</span></p><p><span>“看来你不是星际迷航</span><sup class='md-footnote'><a href='#dfref-footnote-7' name='ref-footnote-7'>7</a></sup><span>的粉丝，我明白的。”</span></p><p><span>肖在她的床垫上耸耸肩。“我挺喜欢DS9</span><span>[^15]</span><span>的，但这并不意味着我认为它是真的。”</span></p><p><span>Root沉默了一会。”告诉我，Sam，“ Root几乎是咕哝着说道，而Shaw在听到她的声音时手指不由自主地在大腿上抽了抽。”你有听说过量子纠缠</span><sup class='md-footnote'><a href='#dfref-footnote-8' name='ref-footnote-8'>8</a></sup><span>吗？“</span></p><p><span>她对这个词有点印象，但除此之外便没有了。”是的，我听说过。那是……物理学里面的另一个独立分支了。关于小东西的。我们在讨论的是大玩意。“</span></p><p><span>”确实，“ Root笑了。”虽然他们在努力将它们统一起来。但那是题外话了。“</span></p><p><span>”所以什么是……“</span></p><p><span>”爱因斯坦称其为’鬼魅般的超距作用‘，事实上这名字很合适这个节目，我应该考虑给节目换个名字。本质上，它说的是在对的距离上，两个粒子会以某种方式纠缠在一起，不管其中一个发生什么，那都会同时发生在另一个身上。“</span></p><p><span>”听起来像是胡扯。“</span></p><p><span>”爱因斯坦也这么认为，当他发现他的算式暗示这件事是可能的时候。但我们现在有了比他好很多的仪器，然后我们通过实验证明它一直在发生。不过这并不是最酷的那部分。“</span></p><p><span>Root暂停了一会，Shaw知道她就是在等自己表明兴趣然后问她那部分是什么。啊，可是她</span><em><span>的确</span></em><span>有点好奇。”所以那是什么呢？“</span></p><p><span>”最酷的那部分，“ Root听着又激动了起来，好像她只是在和Shaw说话，已经忘记了自己还在电台里，”是不管那些粒子离得有多远，这件事情都可以发生。他们在相隔几迈远的不同实验室进行实验，当他们改变其中一个粒子时，他们观察到与之纠缠的量子在完全相同的时间上也发生了变化</span><sup class='md-footnote'><a href='#dfref-footnote-9' name='ref-footnote-9'>9</a></sup><span>。甚至都不是微秒后，它完完全全是同步的。这个信息事实上比光速传播得更快。“</span></p><p><span>”嗯。“Shaw皱起了眉头。”那只在单个粒子上管用，对吧？“</span></p><p><span>”他们尝试对整个分子做同样的事情。最近已经达到了人类发丝的宽度了。”</span></p><p><span>那已经……远远超过了蛋白质的大小了。她真庆幸她不用在医学院学这些量子物理的狗屎。“好吧好吧，我可以看到它在太空旅行上的可能性了。但你还是得先把你在纠缠态的其中一个粒子弄到另一个星球去吧。”</span></p><p><span>“是的。而且必须承认的是，它工作的方式比起</span><em><span>传递</span></em><span>信息，更像是……确认信息？”那听上去完全无意义，但Root继续解释道。“你知道量子层级的事情从宏观的角度来看总是很奇怪，对吧？波粒二象性</span><sup class='md-footnote'><a href='#dfref-footnote-10' name='ref-footnote-10'>10</a></sup><span>，叠加态</span><sup class='md-footnote'><a href='#dfref-footnote-11' name='ref-footnote-11'>11</a></sup><span>，还有所有那些东西。</span></p><p><span>”嗯哼。“Shaw在大学时只上过一个物理化学课，她更喜欢有机化学，并且讨厌该死的波函数。她在好几年前就把那些玩意抛之脑后，不过听Root像书呆子一样兴奋地谈论这些……嗯，并不坏。</span></p><p><span>”所以当你真的观测处于纠缠态的一个粒子时，另一个的波函数也会坍塌，因为你已经通过知道第一个粒子的状态而确定了它的状态。从某种角度说，这个信息比光速传播得更快，但从另一种更粒子的角度上说，这其实只是观测者效应的过度运行。“</span></p><p><span>Shaw惊愕地坐了起来。”你在告诉我你刚刚说的那些胡言乱语里面没有一部分和任何事物有任何联系？“</span></p><p><span>”如果你只是有两个系统的话，那么是的，它基本上对于太空旅行的需求来说毫无用处。但，现在才是真正酷的部分。“</span></p><p><span>”你上次也这么说。“</span></p><p><span>”我保证你会喜欢这个。是的，对于只涉及两个粒子或分子或不管是什么玩意的东西来说，量子纠缠毫无意义，除非你要加密一些东西。但如果你往系统里加入了第三个，紧接着你就会有一场粒子群派对。</span><span>[^20]</span><span>“ Shaw很开心Root现在不在她旁边，这样她就看不到自己因为她这糟糕的笑话微笑了一点。她只会把这个当成是对继续调情的鼓励。”这就是，我不知道他们是不是已经给它取了个特别的名字，在特殊条件下你可以将信息通过粒子传递，如果它们处于通信态。“</span></p><p><span>”比如电子自旋态这种信息？“</span></p><p><span>”事实上就是那种信息。你需要用波函数来描述所有东西的原因就是它们包含的信息量太大了，而它们全都储存在这个充满不确定性的量子云里。如果你触碰了其中一个粒子，它们就会传递信息。第二个会和第一个拥有相同的自旋态</span><span>[^21]</span><span>。所以，当第二个粒子也是一群纠缠量子里的其中一部分时……“</span></p><p><span>Shaw用响亮的声音完成了这个想法。”所有其他纠缠的量子也会得到和原始那个一样的信息。“</span></p><p><span>”并且基于我们已经明白纠缠可以在很远的距离下发生……你说过你喜欢星际迷航对吗Sam？你刚刚发明了一个传送器。“</span></p><p><span>啊，该死的。</span></p><p><span>”没错，“ Root继续道，”这确实有个小问题，就是在传输过程中最初粒子携带的信息会被摧毁。“</span></p><p><span>”所以你确实可以传送你自己，但你会先把你自己杀了，然后克隆出一个你取代你的地位。“</span></p><p><span>”是的。“ Root开心地说。</span></p><p><span>”有些人可能会对那有意见。“</span></p><p><span>”在未来生活需要付出的小代价，我想。“</span></p><p><span>”我还是算了吧。“ Shaw看了看她的表，发现现在已经三点零七了。”你不应该下线了吗？“</span></p><p><span>”什么？噢。“ Root的电话那头传来轻微的咔哒声，而Shaw一直在安静地回荡她们对话的收音机在回到定期预录的体育节目前切换成了一阵短暂的电流声。几秒后甚至那个也消失了，因为Root大概是把电站的功率恢复到了正常，而Shaw离它正常的播送范围实在太远了。</span></p><p><span>”甚至都不说点结束语，嗯？“</span></p><p><span>”他们会搞清楚的。但如果你想把你的原子和我的再纠缠交织一会的话，请随意留下，Sameen。“</span></p><p><span>噢。</span></p><p><span>Shaw希望她还有一部翻盖手机。把这种人用盖上盖子的方法挂断可比戳一个按钮令人满意得多。</span></p><hr /><p>&nbsp;</p><div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> <span>Nebraska，中西部另一个州。肖基本上把中西部全跑完了lol。</span> <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>2</span> <span>这里馈电喇叭指的是这两根天线。根据观测到Wow!信号的Big Ear Radio Telescope的</span><a href='http://www.bigear.org/about.htm'><span>官方网站</span></a><span>，它确实由两个安装在可移动组件上的馈电喇叭组成。但这个可移动组件只能向上或向下移动，所以与后文中提到的它无法移动并不矛盾，只是后文说得不够准确。Big Ear的工作原理是通过地球自转使得它可以扫描到纬度状的信息，而它通过向上/下移动来改变探测到的经度信息，从而遍历整个天空。 </span> <a name='dfref-footnote-2' href='#ref-footnote-2' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>3</span> <span>这个设想确实很有趣，但漏洞实在是太大了。首先，因为爆炸的持续时间很短，爆炸产生的电波信号通常是脉冲状的，而Wow!信号持续了长达72秒，通常一次爆炸不可能持续那么长时间。再者，如果是在地球上发生的爆炸，两根天线肯定也都能接到这个信号，因为这两根天线间的差别并没有大到检测不到同一次爆炸的程度。这个来电者的观点用其自己的话就可以很容易地反驳。不过她认为信号一定来源于地球的观点，根据她的描述还是可以站得住脚的，只是不可能是美苏争霸的阴谋论导致的爆炸而已。美国人在谈到苏联时总是会失去理智，这点还蛮有意思的。</span> <a name='dfref-footnote-3' href='#ref-footnote-3' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>4</span> <span>Root lets her excitement slip into her voice, and Shaw lets herself slip from the bar. 这里用了两个slip，很有意思。</span> <a name='dfref-footnote-4' href='#ref-footnote-4' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>5</span> <span>现在正好2:35AM，dear babe shaw，你可以像我一样为了翻译一个同人文差点学完了信号与系统，并且查阅一堆傻逼文献 ;) just kidding</span> <a name='dfref-footnote-5' href='#ref-footnote-5' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>6</span> <span>spcae slug</span> <a name='dfref-footnote-6' href='#ref-footnote-6' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>7</span> <span>Star Trek</span> <a name='dfref-footnote-7' href='#ref-footnote-7' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>8</span> <a href='https://zh.wikipedia.org/wiki/%E9%87%8F%E5%AD%90%E7%BA%8F%E7%B5%90'><span>quantum entanglement</span></a><span>，我觉得这里的解释有些不准确？因为量子纠缠通常发生在两个零自旋态的粒子上，当其中一个粒子被观测为上旋态时，另一个粒子则必定为下旋态。wiki用一个例子形象地描述了这个状态。把一个硬币横向劈成两半，分别单独拥有正面与反面，然后将它们装进两个一模一样的袋子里，打乱之后交给两个人。当其中一个人打开袋子时，另一个人不需要打开袋子就会立马在看到前一个人的结果时知道自己手里的硬币是什么。量子纠缠的传递速度可以达到光速的一万倍以上（至少），这就是为什么根妹在这里提到这个概念。但实际上许多学者认为量子纠缠</span><a href='https://www.forbes.com/sites/startswithabang/2020/01/02/no-we-still-cant-use-quantum-entanglement-to-communicate-faster-than-light/?sh=3f481b484d5d'><span>并不能被用于超光速旅行</span></a><span>, 因为当你需要进行超光速旅行时，你所做的并不是观测这个量子态，实际上是在强迫这一对粒子进入你想要的某个状态（即旅行）。当你通过外界手段对量子进行操作时，这种操作实际上打破了量子之间的纠缠态，导致它们重新恢复到原本未知的叠加态中，因此你无法得到你想要的结果。当然，从理论上来说，根妹提出的量子纠缠传递链是可行的，只是我们没有办法保证它能够成功运行，而50/50概率的成功率（并且考虑到我们其实也没法得到那么多对纠缠的量子）代价实在太高，所以从现实角度来说它并不可行。</span> <a name='dfref-footnote-8' href='#ref-footnote-8' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>9</span> <span>他们做的改变实际上只是对量子进行观测了而已，并不是使其按照科学家们希望的方式变化。至于根妹说的分子上的量子纠缠，我查到的提到分子态的纠缠最早发布在2020年的Nature上（中科大的研究员发表的），虽然在发表之前有arXiv的版本，但那也是2019年12月了。而这篇同人文在2018年10月左右写成，所以我推测作者在这里在进行学术假设。同时，2020年这篇Nature所做的也只是钙离子，远没有到头发丝宽度的程度。当然这是我所做的初步研究，我并不是物理专业的，如果有人有不同意见，feel free to reach out :)</span> <a name='dfref-footnote-9' href='#ref-footnote-9' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>10</span>  <a name='dfref-footnote-10' href='#ref-footnote-10' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>11</span> <span>superpositions，这个想解释一下因为叠加态其实是量子物理学里很重要的一个概念。上一章里面谈到的观测者效应和叠加态其实也高度相关。叠加态指量子在没有被观测到时以不确定态存在，叠加指的是可能是任何状态，这些状态重合到一起组成了一个类似叠加的形式。因为这种状态在未被观测的情况下发生，所以叠加态通常被看作是未知的量子云态。当人类想观测量子时，观测会对其产生影响（之前谈到的观测者效应，可以去回头温习一下），这种影响会永恒地不可逆转地改变量子云的状态，使其从叠加态坍缩到一个被观测到的固定状态。最著名的例子就是薛定谔的猫，当你把猫放在一个毒气盒里并关上盒子时，猫就处于一种叠加态当中。在你不观测它时，猫以存活和死亡两种状态的叠加形式存在，但当你把盒子打开时，你会得到一个结果，无论是存活抑或是死亡，都是原本的猫的叠加态在受到你观测的影响之后坍缩成了对应状态。</span> <a name='dfref-footnote-11' href='#ref-footnote-11' title='back to document' class='reversefootnote' >↩</a></div></div></div></div>
+</body>
+</html>
